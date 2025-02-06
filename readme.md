@@ -9,7 +9,8 @@
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Features](#features)
+- [Supported Features](#supported-features)
+- [Features Overview](#features-overview)
   - [Search](#search)
   - [Quotation Details](#quotation-details)
     - [Quotation ID](#quotation-id)
@@ -48,8 +49,43 @@
 The **Lalamove Go SDK** is a robust and comprehensive client library built in Go for interacting with Lalamove’s Official API V3. This SDK aims to cover the full spectrum of Lalamove functionalities, ensuring you can easily integrate searching, quoting, ordering, and managing deliveries directly within your Go applications.
 
 ---
+## Supported Features
 
-## Features
+> **Legend:**  
+> ✅ - Supported  
+> ❌ - Not yet supported
+
+- ❌ **Search**
+- ❌ **Quotation Details**
+  - ❌ Quotation ID
+  - ❌ Quotation Validity Period
+  - ❌ Price Breakdown
+  - ❌ Distance
+- ❌ **Change Driver**
+- ❌ **Route Optimization**
+- ❌ **Authentication**
+- ❌ **Order Flow**
+  - ❌ Available Markets
+  - ❌ Service Types & Special Requests
+  - ❌ Get Quotation
+  - ❌ Quotation Details (Order Flow)
+  - ❌ Place Order
+  - ❌ Order Details
+  - ❌ Driver Details
+  - ❌ Add Priority Fee
+  - ❌ Edit Order
+  - ❌ Cancel Order
+  - ❌ Change Driver (Order)
+- ❌ **Get City Info**
+- ❌ **Webhook**
+- ❌ **Errors**
+
+
+*Note: Checkboxes will be updated as features are implemented.*
+
+---
+
+## Features Overview
 
 ### Search
 
