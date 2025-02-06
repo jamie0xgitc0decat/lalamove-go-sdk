@@ -3,6 +3,7 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/jamie0xgitc0decat/lalamove-go-sdk.svg)](https://pkg.go.dev/github.com/jamie0xgitc0decat/lalamove-go-sdk)
 
 **Lalamove Go SDK** is a Go library that provides seamless integration with Lalamove’s Official API V3. Our aim is to deliver full compatibility with Lalamove’s API, enabling developers to easily incorporate a broad range of logistics and order management features into their Go applications.
+[Lalamove Official API Documentation](https://developers.lalamove.com/#introduction)
 
 ---
 
