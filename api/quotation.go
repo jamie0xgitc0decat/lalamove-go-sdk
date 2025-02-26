@@ -5,12 +5,13 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/jamie0xgitc0decat/lalamove-go-sdk/interfaces"
 	"github.com/jamie0xgitc0decat/lalamove-go-sdk/models"
 )
 
 // QuotationService handles quotation-related operations
 type QuotationService struct {
-	Client *Client
+	Client interfaces.Client
 }
 
 // Create creates a new quotation
@@ -21,7 +22,7 @@ func (s *QuotationService) Create(ctx context.Context, req *models.QuotationRequ
 	}
 
 	var response models.QuotationResponse
-	err := s.client.Request().Do(ctx, http.MethodPost, "/quotations", req, &response)
+	err := s.Client.Request().Do(ctx, http.MethodPost, "/quotations", req, &response)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create quotation: %w", err)
 	}
@@ -37,7 +38,7 @@ func (s *QuotationService) Get(ctx context.Context, quotationID string) (*models
 
 	path := fmt.Sprintf("/quotations/%s", quotationID)
 	var response models.QuotationResponse
-	err := s.client.Request().Do(ctx, http.MethodGet, path, nil, &response)
+	err := s.Client.Request().Do(ctx, http.MethodGet, path, nil, &response)
 	if err != nil {
 		return nil, fmt.Errorf("failed to get quotation details: %w", err)
 	}

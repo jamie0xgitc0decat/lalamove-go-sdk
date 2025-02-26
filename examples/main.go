@@ -23,12 +23,15 @@ func main() {
 	}
 
 	// Create a production client
-	prodClient := client.NewClient(client.Config{
+	prodClient, err := client.NewClient(client.Config{
 		APIKey:      "your-prod-api-key",
 		APISecret:   "your-prod-api-secret",
 		Environment: client.Production,
 		Timeout:     60 * time.Second,
 	})
+	if err != nil {
+		log.Fatalf("Failed to create client: %v", err)
+	}
 
 	// Example using sandbox client
 	order, err := sandboxClient.Orders.Create(context.Background(), &models.Order{

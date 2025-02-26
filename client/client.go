@@ -5,7 +5,8 @@ import (
 	"net/http"
 	"time"
 
-	api "github.com/jamie0xgitc0decat/lalamove-go-sdk/api"
+	"github.com/jamie0xgitc0decat/lalamove-go-sdk/api"
+	"github.com/jamie0xgitc0decat/lalamove-go-sdk/interfaces"
 	"github.com/jamie0xgitc0decat/lalamove-go-sdk/internal/auth"
 	"github.com/jamie0xgitc0decat/lalamove-go-sdk/internal/request"
 )
@@ -40,10 +41,10 @@ type Client struct {
 	environment Environment
 
 	// Service endpoints
-	Orders     *api.OrderService
-	Quotations *api.QuotationService
-	Markets    *api.MarketService
-	Drivers    *api.DriverService
+	quotations *api.QuotationService
+	orders     *api.OrderService
+	// Markets    *api.MarketService
+	// Drivers    *api.DriverService
 
 	// Request handler
 	request *request.Request
@@ -101,10 +102,8 @@ func NewClient(config Config) (*Client, error) {
 	)
 
 	// Initialize services
-	c.Orders = &api.OrderService{Client: c.Orders.Client}
-	c.Quotations = &api.QuotationService{Client: c}
-	c.Markets = &api.MarketService{Client: c}
-	c.Drivers = &api.DriverService{client: c}
+	c.quotations = &api.QuotationService{Client: c}
+	c.orders = &api.OrderService{Client: c}
 
 	return c, nil
 }
@@ -114,7 +113,9 @@ func (c *Client) IsProduction() bool {
 	return c.environment == Production
 }
 
-// Request returns the request handler
 func (c *Client) Request() *request.Request {
 	return c.request
 }
+
+func (c *Client) Quotations() interfaces.QuotationService { return c.quotations }
+func (c *Client) Orders() interfaces.OrderService         { return c.orders }
